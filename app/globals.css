@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 3px;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+}
+
+.bar1 {
+  top: 0;
+}
+
+.bar2 {
+  top: 8px;
+}
+
+.bar3 {
+  top: 16px;
+}
+
+.menu-btn.active .bar1 {
+  transform: rotate(45deg);
+  top: 8px;
+}
+
+.menu-btn.active .bar2 {
+  opacity: 0;
+}
+
+.menu-btn.active .bar3 {
+  transform: rotate(-45deg);
+  top: 8px;
+}
