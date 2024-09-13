@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.white-shadow:hover {
+  text-shadow: 0 10px 40px rgb(255, 255, 255);
+}
+
 .menu-btn {
   background: none;
   border: none;

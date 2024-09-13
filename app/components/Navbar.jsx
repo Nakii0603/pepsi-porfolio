@@ -5,28 +5,28 @@ import { useState } from "react";
 
 const MenuItems = () => (
   <>
-    <a href="" aria-label="Home">
+    <a href="#" className="white-shadow" aria-label="Home">
       Нүүр
     </a>
-    <a href="" aria-label="About Us">
+    <a href="" className="white-shadow" aria-label="About Us">
       Бидний тухай
     </a>
-    <a href="" aria-label="Brand">
+    <a href="" className="white-shadow" aria-label="Brand">
       Брэнд
     </a>
-    <a href="" aria-label="Career">
+    <a href="" className="white-shadow" aria-label="Career">
       Карьер
     </a>
-    <a href="" aria-label="News">
+    <a href="" className="white-shadow" aria-label="News">
       Мэдээ, мэдээлэл
     </a>
-    <a href="" aria-label="Contact">
+    <a href="" className="white-shadow" aria-label="Contact">
       Холбогдох
     </a>
-    <a href="" aria-label="Social Impact">
+    <a href="" className="white-shadow" aria-label="Social Impact">
       Нийгмийн үзүүлэх нөлөө
     </a>
-    <a href="" aria-label="English">
+    <a href="" className="white-shadow" aria-label="English">
       EN
     </a>
   </>
@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="mt-[100px] w-[140px] h-[140px]">
           <Logo />
         </div>
-        <div className="max-md:hidden md:flex  mx-[10px] justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[16px] max-lg:text-[12px]">
+        <div className="max-md:hidden md:flex  mx-[10px] justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[20px] max-lg:text-[12px]">
           <MenuItems />
         </div>
         <div className="flex md:hidden items-center">
