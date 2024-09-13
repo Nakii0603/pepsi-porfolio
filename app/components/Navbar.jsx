@@ -42,10 +42,10 @@ export default function Navbar() {
   return (
     <nav className="bg-[#1E1E1E] relative mb-[20px] transition-all duration-1000 rounded-br-lg rounded-bl-lg">
       <div className="flex max-w-[1440px] h-[90px] justify-between mx-auto items-center text-white">
-        <div className="mt-[100px] w-[140px] h-[140px]" >
+        <div className="mt-[100px] w-[140px] h-[140px]">
           <Logo />
         </div>
-        <div className="max-md:hidden md:flex justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[16px] max-lg:text-[12px]">
+        <div className="max-md:hidden md:flex  mx-[10px] justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[16px] max-lg:text-[12px]">
           <MenuItems />
         </div>
         <div className="flex md:hidden items-center">
@@ -61,11 +61,13 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`flex-col text-white md:hidden flex transition-all duration-1000 ${
+        className={`flex-col text-white md:hidden flex transition-all items-end duration-1000 ${
           isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
         }`}
       >
-        <MenuItems />
+        <div className="flex flex-col">
+          <MenuItems />
+        </div>
       </div>
     </nav>
   );
