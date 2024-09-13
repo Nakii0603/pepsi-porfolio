@@ -1,5 +1,7 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+
+import Logo from "@/public/Logo";
+import { useState } from "react";
 
 const MenuItems = () => (
   <>
@@ -38,10 +40,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-[#1E1E1E] transition-all duration-1000">
-      <div className="flex max-w-[1400px] justify-between mx-auto items-center text-white">
-        <h1 className="text-lg font-bold">logo</h1>
-        <div className="max-md:hidden md:flex justify-between w-[85%] font-extrabold text-[16px] md:font-semibold md:w-[90%] md:text-[14px]">
+    <nav className="bg-[#1E1E1E] relative mb-[20px] transition-all duration-1000 rounded-br-lg rounded-bl-lg">
+      <div className="flex max-w-[1440px] h-[90px] justify-between mx-auto items-center text-white">
+        <div className="mt-[100px] w-[140px] h-[140px]" >
+          <Logo />
+        </div>
+        <div className="max-md:hidden md:flex justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[16px] max-lg:text-[12px]">
           <MenuItems />
         </div>
         <div className="flex md:hidden items-center">
