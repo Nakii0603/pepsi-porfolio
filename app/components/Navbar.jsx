@@ -64,10 +64,9 @@ export default function Navbar() {
         className={`flex-col text-white md:hidden flex transition-all items-end duration-1000 ${
           isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
         }`}
-      >
-        <div className="flex flex-col">
-          <MenuItems />
-        </div>
+      ></div>
+      <div className="flex flex-col">
+        <MenuItems />
       </div>
     </nav>
   );
