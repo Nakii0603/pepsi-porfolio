@@ -15,7 +15,7 @@ export default function page() {
       <Welcome />
       <Hero />
       <ColdPepsi />
-      <BeCold />
+      {/* <BeCold /> */}
     </div>
   );
 }
