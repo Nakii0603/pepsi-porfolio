@@ -5,28 +5,28 @@ import { useState } from "react";
 
 const MenuItems = () => (
   <>
-    <a href="#" className="white-shadow" aria-label="Home">
+    <a href="#" aria-label="Home">
       Нүүр
     </a>
-    <a href="" className="white-shadow" aria-label="About Us">
+    <a href="" aria-label="About Us">
       Бидний тухай
     </a>
-    <a href="" className="white-shadow" aria-label="Brand">
+    <a href="" aria-label="Brand">
       Брэнд
     </a>
-    <a href="" className="white-shadow" aria-label="Career">
+    <a href="" aria-label="Career">
       Карьер
     </a>
-    <a href="" className="white-shadow" aria-label="News">
+    <a href="" aria-label="News">
       Мэдээ, мэдээлэл
     </a>
-    <a href="" className="white-shadow" aria-label="Contact">
+    <a href="" aria-label="Contact">
       Холбогдох
     </a>
-    <a href="" className="white-shadow" aria-label="Social Impact">
+    <a href="" aria-label="Social Impact">
       Нийгмийн үзүүлэх нөлөө
     </a>
-    <a href="" className="white-shadow" aria-label="English">
+    <a href="" aria-label="English">
       EN
     </a>
   </>
@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="mt-[100px] w-[140px] h-[140px]">
           <Logo />
         </div>
-        <div className="max-md:hidden md:flex  mx-[10px] justify-between w-[85%]  md:font-extrabold md:w-[85%] text-[20px] max-lg:text-[12px]">
+        <div className="max-md:hidden md:flex mx-[10px] justify-between w-[85%] md:font-extrabold md:w-[85%] text-[20px] max-lg:text-[12px]">
           <MenuItems />
         </div>
         <div className="flex md:hidden items-center">
@@ -61,12 +61,11 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`flex-col text-white md:hidden flex transition-all items-end duration-1000 ${
+        className={`flex-col text-white md:hidden flex transition-all items-start  ${
           isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
         }`}
-      ></div>
-      <div className="flex flex-col">
-        <MenuItems />
+      >
+        <MenuItems isMenuOpen={isMenuOpen} />
       </div>
     </nav>
   );
