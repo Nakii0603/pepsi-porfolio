@@ -2,7 +2,7 @@
 export default function Star() {
   return (
     <div>
-        <img src="./Star.png" alt="" />
+        <img src="./img/Star.png" alt="" />
     </div>
   )
 }

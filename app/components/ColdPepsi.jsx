@@ -1,4 +1,4 @@
-import BeCold from "@/public/BeCold";
+import BeCold from "@/public/imgJS/BeCold";
 
 export default function ColdPepsi() {
   return (

@@ -3,7 +3,7 @@ import React from "react";
 export default function SameTaste() {
   return (
     <div>
-      <img src="./SameTaste.png" alt="" />
+      <img src="./img/SameTaste.png" alt="" />
     </div>
   );
 }

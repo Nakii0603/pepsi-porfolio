@@ -1,6 +1,6 @@
-import LaazLogo from "@/public/LaazLogo";
-import NewLook from "@/public/NewLook";
-import SameTaste from "@/public/SameTaste";
+import LaazLogo from "@/public/imgJS/LaazLogo";
+import NewLook from "@/public/imgJS/NewLook";
+import SameTaste from "@/public/imgJS/SameTaste";
 
 export default function Hero() {
   return (

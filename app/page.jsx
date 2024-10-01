@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Cover from "@/public/Cover";
+import Cover from "@/public/imgJS/Cover";
 import Welcome from "./components/Welcome";
 import Hero from "./components/NewLook";
 import ColdPepsi from "./components/ColdPepsi";

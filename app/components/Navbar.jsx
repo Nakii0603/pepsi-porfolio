@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "@/public/Logo";
+import Logo from "@/public/imgJS/Logo";
 import { useState } from "react";
 
 const MenuItems = () => (

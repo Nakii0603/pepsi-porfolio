@@ -3,7 +3,7 @@ import React from 'react'
 export default function BeCold() {
   return (
     <div>
-        <img src="./BeCold.png" alt="" />
+        <img src="./img/BeCold.png" alt="" />
     </div>
   )
 }
