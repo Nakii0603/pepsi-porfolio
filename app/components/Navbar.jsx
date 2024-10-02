@@ -2,42 +2,27 @@
 
 import Logo from "@/public/imgJS/Logo";
 import { useState } from "react";
-
-const MenuItems = () => (
-  <>
-    <a href="#" aria-label="Home">
-      Нүүр
-    </a>
-    <a href="" aria-label="About Us">
-      Бидний тухай
-    </a>
-    <a href="" aria-label="Brand">
-      Брэнд
-    </a>
-    <a href="" aria-label="Career">
-      Карьер
-    </a>
-    <a href="" aria-label="News">
-      Мэдээ, мэдээлэл
-    </a>
-    <a href="" aria-label="Contact">
-      Холбогдох
-    </a>
-    <a href="" aria-label="Social Impact">
-      Нийгмийн үзүүлэх нөлөө
-    </a>
-    <a href="" aria-label="English">
-      EN
-    </a>
-  </>
-);
+import FullscreenOverlayNav from "./test";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Initialize to false for a closed menu
+  const [visible, setVisible] = useState(true); // Set to true if you want the button to show by default
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
+    setVisible((prev) => !prev); // Correctly toggle visibility
   };
+
+  const items = [
+    { label: "Нүүр", ariaLabel: "Home", href: "#" },
+    { label: "Бидний тухай", ariaLabel: "About Us", href: "#" },
+    { label: "Брэнд", ariaLabel: "Brand", href: "#" },
+    { label: "Карьер", ariaLabel: "Career", href: "#" },
+    { label: "Мэдээ, мэдээлэл", ariaLabel: "News", href: "#" },
+    { label: "Холбогдох", ariaLabel: "Contact", href: "#" },
+    { label: "Нийгмийн үзүүлэх нөлөө", ariaLabel: "Social Impact", href: "#" },
+    { label: "EN", ariaLabel: "English", href: "#" },
+  ];
 
   return (
     <nav className="bg-[#1E1E1E] relative mb-[20px] transition-all duration-1000 rounded-br-lg rounded-bl-lg">
@@ -45,27 +30,35 @@ export default function Navbar() {
         <div className="mt-[100px] w-[140px] h-[140px]">
           <Logo />
         </div>
-        <div className="max-md:hidden md:flex mx-[10px] justify-between w-[85%] md:font-extrabold md:w-[85%] text-[20px] max-lg:text-[12px]">
-          <MenuItems />
+        <div className="max-md:hidden md:flex mx-[10px] justify-between w-[85%] md:font-extrabold md:w-[85%] text-[18px] max-lg:text-[12px]">
+          {items.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              aria-label={item.ariaLabel}
+              className="hover:text-gray-400 transition duration-200"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
-        <div className="flex md:hidden items-center">
-          <button
-            className={`menu-btn m-4 ${isMenuOpen ? "active" : ""}`}
-            onClick={toggleMenu}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          >
-            <span className="bar bar1"></span>
-            <span className="bar bar2"></span>
-            <span className="bar bar3"></span>
-          </button>
+        <div className="hidden max-md:flex">
+          {visible && (
+            <button
+              className="hidden max-md:flex menu-btn"
+              onClick={toggleMenu}
+            >
+              <span className="bar bar1"> </span>
+              <span className="bar bar2"> </span>
+              <span className="bar bar3"> </span>
+            </button>
+          )}
         </div>
-      </div>
-      <div
-        className={`flex-col text-white md:hidden flex transition-all items-start  ${
-          isMenuOpen ? "max-h-screen" : "max-h-0 overflow-hidden"
-        }`}
-      >
-        <MenuItems isMenuOpen={isMenuOpen} />
+        <FullscreenOverlayNav
+          isOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+          items={items}
+        />
       </div>
     </nav>
   );
