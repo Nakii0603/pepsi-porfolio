@@ -2,15 +2,15 @@
 
 import Logo from "@/public/imgJS/Logo";
 import { useState } from "react";
-import FullscreenOverlayNav from "./test";
+import FullscreenOverlayNav from "./FullscreenOverlayNav";
 
 export default function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Initialize to false for a closed menu
-  const [visible, setVisible] = useState(true); // Set to true if you want the button to show by default
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [visible, setVisible] = useState(true); 
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
-    setVisible((prev) => !prev); // Correctly toggle visibility
+    setVisible((prev) => !prev); 
   };
 
   const items = [
@@ -42,7 +42,7 @@ export default function Navbar() {
             </a>
           ))}
         </div>
-        <div className="hidden max-md:flex">
+        <div className="hidden max-md:flex mr-5">
           {visible && (
             <button
               className="hidden max-md:flex menu-btn"
