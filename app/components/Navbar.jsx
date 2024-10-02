@@ -27,7 +27,7 @@ export default function Navbar() {
   return (
     <nav className="bg-[#1E1E1E] relative mb-[20px] transition-all duration-1000 rounded-br-lg rounded-bl-lg">
       <div className="flex max-w-[1440px] h-[90px] justify-between mx-auto items-center text-white">
-        <div className="mt-[100px] w-[140px] h-[140px]">
+        <div className="mt-[100px] w-[140px] h-[140px] z-10">
           <Logo />
         </div>
         <div className="max-md:hidden md:flex mx-[10px] justify-between w-[85%] md:font-extrabold md:w-[85%] text-[18px] max-lg:text-[12px]">
