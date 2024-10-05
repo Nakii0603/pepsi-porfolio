@@ -1,7 +1,15 @@
-const FullscreenOverlayNav = ({ isOpen, toggleMenu, items }) => {
+import { Loyalt2 } from "./Loyalty";
+
+const FullscreenOverlayNav = ({
+  isOpen,
+  toggleMenu,
+  items,
+  toggleLanguage,
+  language,
+}) => {
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-90  md:hidden transition-all duration-500 ${
+      className={`fixed inset-0 bg-black bg-opacity-90 z-10  md:hidden transition-all duration-500 ${
         isOpen ? "block" : "hidden"
       }`}
     >
@@ -15,18 +23,21 @@ const FullscreenOverlayNav = ({ isOpen, toggleMenu, items }) => {
           <span className="bar2 bar"></span>
         </button>
       </div>
-      <div className="flex flex-col items-center justify-center h-full  text-white">
-        {items.map((item, index) => (
-          <a
-            key={index}
-            href={item.href}
-            aria-label={item.ariaLabel}
-            className="my-2 text-[26px] text-lg hover:text-gray-400 transition duration-200"
-            onClick={toggleMenu}
-          >
-            {item.label}
-          </a>
-        ))}
+      <div className="flex justify-center h-full gap-5 flex-col  items-center">
+        <div className="flex flex-col items-center justify-center text-white">
+          {items.map((item, index) => (
+            <a
+              key={index}
+              href={item.href}
+              aria-label={item.ariaLabel}
+              className="my-2 text-[26px] text-lg hover:text-gray-400 transition duration-200"
+              onClick={toggleMenu}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+          <Loyalt2 toggleLanguage={toggleLanguage} language={language} />
       </div>
     </div>
   );
