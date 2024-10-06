@@ -9,7 +9,7 @@ const FullscreenOverlayNav = ({
 }) => {
   return (
     <div
-      className={`fixed inset-0 bg-black bg-opacity-90 z-10  md:hidden transition-all duration-500 ${
+      className={`fixed inset-0 bg-black bg-opacity-90 z-10 md:hidden transition-all duration-500 ${
         isOpen ? "block" : "hidden"
       }`}
     >
@@ -30,7 +30,7 @@ const FullscreenOverlayNav = ({
               key={index}
               href={item.href}
               aria-label={item.ariaLabel}
-              className="my-2 text-[26px] text-lg hover:text-gray-400 transition duration-200"
+              className="my-2  font-semibold text-[26px] hover:text-gray-400 transition duration-200"
               onClick={toggleMenu}
             >
               {item.label}

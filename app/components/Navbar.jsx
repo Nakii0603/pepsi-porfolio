@@ -45,13 +45,13 @@ export default function Navbar() {
           <Logo />
         </div>
         <div className="flex lg:gap-[100px] max-md:gap-5 w-[100%]">
-          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[85%] max-lg:text-[14px] text-[18px] ">
+          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[85%]  ">
             {items.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
                 aria-label={item.ariaLabel}
-                className="hover:text-gray-400 transition duration-200"
+                className="hover:text-gray-400 max-lg:text-[14px] text-[18px] transition duration-200"
               >
                 {item.label}
               </a>
