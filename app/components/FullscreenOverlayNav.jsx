@@ -37,7 +37,7 @@ const FullscreenOverlayNav = ({
             </a>
           ))}
         </div>
-          <Loyalt2 toggleLanguage={toggleLanguage} language={language} />
+        <Loyalt2 toggleLanguage={toggleLanguage} language={language} />
       </div>
     </div>
   );

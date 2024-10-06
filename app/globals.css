@@ -67,3 +67,7 @@
 .loyalty {
   background: linear-gradient(45deg, #1443ff, #0c2899);
 }
+.flag img{
+  width: 40px;
+  height: 28px;
+}
