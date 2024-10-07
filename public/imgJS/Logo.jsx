@@ -1,6 +1,6 @@
 export default function Logo() {
   return (
-    <div className=" w-[100px] h-[100px] ">
+    <div className="">
       <img src="./img/Logo.png" alt="" />
     </div>
   );
