@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 
 const LoyaltyBtn = ({ language }) => {
   const [animate, setAnimate] = useState(false);

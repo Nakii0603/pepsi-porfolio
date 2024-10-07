@@ -1,8 +1,8 @@
-import { EnglishFlag } from "@/public/imgJS/EnglishFlag";
-import { MongoliaFlag } from "@/public/imgJS/MongoliaFlag";
+import { EnglishFlag1 } from "@/public/imgJS/EnglishFlag";
+import { MongoliaFlag1 } from "@/public/imgJS/MongoliaFlag";
 import { useState } from "react";
 
-export default function ChangeLanguage({ toggleLanguage }) {
+export default function ChageLanguageForNav({ toggleLanguage }) {
   const [language, setLanguage] = useState("en");
 
   const handleLanguageChange = () => {
@@ -12,21 +12,18 @@ export default function ChangeLanguage({ toggleLanguage }) {
   };
 
   return (
-    <div
-      onClick={handleLanguageChange}
-      className="flex items-center cursor-pointer"
-    >
+    <div className="flex items-center" onClick={handleLanguageChange}>
       {language === "mn" ? (
-        <MongoliaFlag aria-hidden="true" />
+        <MongoliaFlag1 aria-hidden="true" />
       ) : (
-        <EnglishFlag aria-hidden="true" />
+        <EnglishFlag1 aria-hidden="true" />
       )}
-      <span
+      <button
         className="text-white mx-2"
         aria-label={`Switch to ${language === "mn" ? "English" : "Mongolian"}`}
       >
-        {language === "mn" ? "MN" : "EN"}
-      </span>
+        {language === "mn" ? "EN" : "MN"}
+      </button>
     </div>
   );
 }

@@ -45,7 +45,7 @@ export default function Navbar() {
           <Logo />
         </div>
         <div className="flex lg:gap-[100px] max-md:gap-5 w-[100%]">
-          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[85%]  ">
+          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[90%]  ">
             {items.map((item, index) => (
               <a
                 key={index}

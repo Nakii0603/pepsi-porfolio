@@ -65,8 +65,15 @@
   height: auto;
 }
 .flag img {
-  width: 40px;
+  width: 50px;
   height: 28px;
+}
+.flag1 img {
+  width: 100px;
+  height: 28px;
+}
+img{
+  max-width: 1;
 }
 
 .button {
