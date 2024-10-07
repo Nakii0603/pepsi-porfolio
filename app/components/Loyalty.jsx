@@ -1,5 +1,3 @@
-import { MongoliaFlag1 } from "@/public/imgJS/MongoliaFlag";
-import { EnglishFlag1 } from "@/public/imgJS/EnglishFlag";
 import ChageLanguage from "./ChageLanguage";
 import LoyaltyBtn from "./LoyaltyBtn";
 import ChageLanguageForNav from "./ChageLanguageForNav";
