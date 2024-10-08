@@ -13,7 +13,6 @@ export default function LaazLogo() {
         />
       ))}
       <img src="./img/PepsiBlack.png" alt="Pepsi Black" />
-      <div className=""></div>
     </div>
   );
 }
