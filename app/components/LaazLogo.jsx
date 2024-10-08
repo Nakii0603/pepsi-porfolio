@@ -1,5 +1,5 @@
 
-const GIF = [{ gif: "/GIF/Pepsi.gif" }];
+const GIF = [{ gif: "/GIF/LogoPep.gif" }];
 
 export default function LaazLogo() {
   return (
