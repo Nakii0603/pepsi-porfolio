@@ -3,10 +3,10 @@ const GIF = [{ gif: "/GIF/Pepsi.gif" }];
 
 export default function LaazLogo() {
   return (
-    <div className="pepsi relative">
+    <div className="pepsi ">
       {GIF.map((item, index) => (
         <img
-          className=" absolute w-[300px] h-[300px] mt-[64px]"
+          className="  w-[300px] h-[300px] mt-[64px]"
           key={index}
           src={item.gif}
           alt="Pepsi GIF"
