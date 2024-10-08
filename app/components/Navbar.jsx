@@ -4,11 +4,12 @@ import Logo from "@/public/imgJS/Logo";
 import { useState } from "react";
 import FullscreenOverlayNav from "./FullscreenOverlayNav";
 import { Loyalty } from "./Loyalty";
+import { useLanguage } from "../ChangeLanguegeProvider";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
-  const [language, setLanguage] = useState("mn");
+  const { language, setLanguage } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
@@ -45,7 +46,7 @@ export default function Navbar() {
           <Logo />
         </div>
         <div className="flex lg:gap-[100px] max-md:gap-5 w-[100%]">
-          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[90%]  ">
+          <div className="max-md:hidden md:flex mx-[10px] justify-between md:font-extrabold md:w-[90%]">
             {items.map((item, index) => (
               <a
                 key={index}
