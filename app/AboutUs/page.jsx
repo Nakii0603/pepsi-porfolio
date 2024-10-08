@@ -1,16 +1,7 @@
-"use client";
+import React from 'react'
 
-import Navbar from "./components/Navbar";
-import { ChangeLanguegeProvider } from "./ChangeLanguegeProvider";
-
-export default function Page() {
+export default function page() {
   return (
-    <div className="bg-black">
-      <ChangeLanguegeProvider>
-        <Navbar />
-
-        <Footer />
-      </ChangeLanguegeProvider>
-    </div>
-  );
+    <div>page</div>
+  )
 }
