@@ -75,7 +75,16 @@
 img{
   max-width: 1;
 }
-
+.imgGIf{
+  width: 300px;
+  height: 300px;
+  margin-top: 64px;
+}
+.pepsi{
+  width: 300px;
+  display: flex;
+  justify-content: center;
+}
 .button {
   position: relative;
   padding: 6px 18px;
