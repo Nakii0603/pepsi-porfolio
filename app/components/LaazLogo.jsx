@@ -6,7 +6,7 @@ export default function LaazLogo() {
     <div className="pepsi relative">
       {GIF.map((item, index) => (
         <img
-          className=" absolute imgGIf"
+          className=" absolute w-[300px] h-[300px] mt-[64px]"
           key={index}
           src={item.gif}
           alt="Pepsi GIF"

@@ -72,15 +72,10 @@
   width: 100px;
   height: 28px;
 }
-img{
+img {
   max-width: 1;
 }
-.imgGIf{
-  width: 300px;
-  height: 300px;
-  margin-top: 64px;
-}
-.pepsi{
+.pepsi {
   width: 300px;
   display: flex;
   justify-content: center;
