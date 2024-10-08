@@ -1,13 +1,16 @@
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import PeopleCards from "../components/PeopleCards";
+"use client";
+
+import Navbar from "./components/Navbar";
+import { ChangeLanguegeProvider } from "./ChangeLanguegeProvider";
 
 export default function Page() {
   return (
     <div className="bg-black">
-      <Navbar />
-      {/* <PeopleCards /> */}
-      <Footer />
+      <ChangeLanguegeProvider>
+        <Navbar />
+
+        <Footer />
+      </ChangeLanguegeProvider>
     </div>
   );
 }
