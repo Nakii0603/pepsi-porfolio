@@ -1,7 +1,17 @@
-import React from 'react'
+"use client";
+import ImageSwitcher from "../components/ImageSwitcher";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { ChangeLanguegeProvider } from "../ChangeLanguegeProvider";
 
-export default function page() {
+export default function Page() {
   return (
-    <div>page</div>
-  )
+    <div className="bg-black">
+      <ChangeLanguegeProvider>
+        <Navbar />
+        <ImageSwitcher />
+        <Footer />
+      </ChangeLanguegeProvider>
+    </div>
+  );
 }
