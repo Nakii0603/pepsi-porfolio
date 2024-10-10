@@ -34,7 +34,7 @@ const DrinkSwitcher = () => {
     },
     {
       name: "Lipton ice tea",
-      img: "/icons/LipMini.png",
+      img: "/icons/Lip1.png",
       sizes: [
         "https://via.placeholder.com/300.png?text=Drink+4+Small",
         "https://via.placeholder.com/300.png?text=Drink+4+Medium",
