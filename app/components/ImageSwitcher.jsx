@@ -187,7 +187,7 @@ const DrinkSwitcher = () => {
                 alt={drink.name}
                 style={{ width: "40px", height: "40px" }}
               />
-              <button className="text-[12px] font-semibold">
+              <button className="text-[12px]  font-semibold">
                 {drink.name}
               </button>
             </div>
