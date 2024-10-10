@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const DrinkSwitcher = () => {
   const drinks = [
@@ -106,6 +106,37 @@ const DrinkSwitcher = () => {
     setCurrentSizeIndex(index);
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "ArrowLeft") {
+      setCurrentDrinkIndex((prevIndex) =>
+        prevIndex > 0 ? prevIndex - 1 : drinks.length - 1
+      );
+    } else if (event.key === "ArrowRight") {
+      setCurrentDrinkIndex((prevIndex) =>
+        prevIndex < drinks.length - 1 ? prevIndex + 1 : 0
+      );
+    } else if (event.key === "ArrowUp") {
+      setCurrentSizeIndex((prevIndex) =>
+        prevIndex > 0
+          ? prevIndex - 1
+          : drinks[currentDrinkIndex].sizes.length - 1
+      );
+    } else if (event.key === "ArrowDown") {
+      setCurrentSizeIndex((prevIndex) =>
+        prevIndex < drinks[currentDrinkIndex].sizes.length - 1
+          ? prevIndex + 1
+          : 0
+      );
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentDrinkIndex, currentSizeIndex]);
+
   return (
     <div className="max-w-[1440px]">
       <div className="flex justify-between mb-4">
@@ -149,6 +180,7 @@ const DrinkSwitcher = () => {
               }`}
               role="button"
               aria-label={`Select drink ${drink.name}`}
+              tabIndex={0} 
             >
               <img
                 src={drink.img}

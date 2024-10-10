@@ -24,16 +24,16 @@ export default function Navbar() {
     language === "mn"
       ? [
           { label: "Нүүр", ariaLabel: "Home", href: "/" },
-          { label: "Бидний тухай", ariaLabel: "About Us", href: "AboutUs" },
-          { label: "Брэнд", ariaLabel: "Brand", href: "#" },
+          { label: "Бидний тухай", ariaLabel: "About Us", href: "#" },
+          { label: "Брэнд", ariaLabel: "Brand", href: "brand" },
           { label: "Карьер", ariaLabel: "Career", href: "#" },
           { label: "Мэдээ, мэдээлэл", ariaLabel: "News", href: "#" },
           { label: "Холбогдох", ariaLabel: "Contact", href: "#" },
         ]
       : [
           { label: "Home", ariaLabel: "Home", href: "/" },
-          { label: "About Us", ariaLabel: "About Us", href: "AboutUs" },
-          { label: "Brand", ariaLabel: "Brand", href: "#" },
+          { label: "About Us", ariaLabel: "About Us", href: "#" },
+          { label: "Brand", ariaLabel: "Brand", href: "brand" },
           { label: "Career", ariaLabel: "Career", href: "#" },
           { label: "News", ariaLabel: "News", href: "#" },
           { label: "Contact", ariaLabel: "Contact", href: "#" },
