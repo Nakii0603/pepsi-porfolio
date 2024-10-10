@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 
 const DrinkSwitcher = () => {
   const drinks = [
@@ -94,108 +94,123 @@ const DrinkSwitcher = () => {
     },
   ];
 
-  const [currentDrinkIndex, setCurrentDrinkIndex] = useState(0);
-  const [currentSizeIndex, setCurrentSizeIndex] = useState(0);
+  const Button = memo(({ index, isActive, onClick, label }) => (
+    <button
+      className={`bg-white p-2 rounded ${
+        isActive ? "border border-blue-500" : ""
+      }`}
+      onClick={() => onClick(index)}
+      aria-label={label}
+    >
+      {label}
+    </button>
+  ));
 
-  const switchDrink = (index) => {
-    setCurrentDrinkIndex(index);
-    setCurrentSizeIndex(0);
-  };
+  const DrinkCard = memo(({ drink, isActive, onClick }) => (
+    <div
+      onClick={onClick}
+      className={`flex gap-1 p-2 rounded-full bg-white h-[50px] w-[115px] items-center cursor-pointer ${
+        isActive ? "border border-blue-500" : ""
+      }`}
+      role="button"
+      aria-label={`Select drink ${drink.name}`}
+      tabIndex={0}
+    >
+      <img
+        src={drink.img}
+        alt={drink.name}
+        style={{ width: "40px", height: "40px" }}
+      />
+      <span className="text-[12px] font-semibold">{drink.name}</span>
+    </div>
+  ));
 
-  const switchSize = (index) => {
-    setCurrentSizeIndex(index);
-  };
+  const DrinkSwitcher = () => {
+    const [currentDrinkIndex, setCurrentDrinkIndex] = useState(0);
+    const [currentSizeIndex, setCurrentSizeIndex] = useState(0);
 
-  const handleKeyDown = (event) => {
-    if (event.key === "ArrowLeft") {
-      setCurrentDrinkIndex((prevIndex) =>
-        prevIndex > 0 ? prevIndex - 1 : drinks.length - 1
-      );
-    } else if (event.key === "ArrowRight") {
-      setCurrentDrinkIndex((prevIndex) =>
-        prevIndex < drinks.length - 1 ? prevIndex + 1 : 0
-      );
-    } else if (event.key === "ArrowUp") {
-      setCurrentSizeIndex((prevIndex) =>
-        prevIndex > 0
-          ? prevIndex - 1
-          : drinks[currentDrinkIndex].sizes.length - 1
-      );
-    } else if (event.key === "ArrowDown") {
-      setCurrentSizeIndex((prevIndex) =>
-        prevIndex < drinks[currentDrinkIndex].sizes.length - 1
-          ? prevIndex + 1
-          : 0
-      );
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("keydown", handleKeyDown);
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+    const switchDrink = (index) => {
+      setCurrentDrinkIndex(index);
+      setCurrentSizeIndex(0);
     };
-  }, [currentDrinkIndex, currentSizeIndex]);
 
-  return (
-    <div className="max-w-[1440px]">
-      <div className="flex justify-between mb-4">
-        <div className="flex items-center">
-          <h2>Select Size</h2>
-          <div className="flex gap-2 ml-4">
-            {drinks[currentDrinkIndex].sizes.map((_, index) => (
-              <button
+    const switchSize = (index) => {
+      setCurrentSizeIndex(index);
+    };
+
+    const handleKeyDown = (event) => {
+      const { key } = event;
+      if (key === "ArrowLeft") {
+        setCurrentDrinkIndex((prevIndex) =>
+          prevIndex > 0 ? prevIndex - 1 : drinks.length - 1
+        );
+      } else if (key === "ArrowRight") {
+        setCurrentDrinkIndex((prevIndex) =>
+          prevIndex < drinks.length - 1 ? prevIndex + 1 : 0
+        );
+      } else if (key === "ArrowUp") {
+        setCurrentSizeIndex((prevIndex) =>
+          prevIndex > 0
+            ? prevIndex - 1
+            : drinks[currentDrinkIndex].sizes.length - 1
+        );
+      } else if (key === "ArrowDown") {
+        setCurrentSizeIndex((prevIndex) =>
+          prevIndex < drinks[currentDrinkIndex].sizes.length - 1
+            ? prevIndex + 1
+            : 0
+        );
+      }
+    };
+
+    useEffect(() => {
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [currentDrinkIndex, currentSizeIndex]);
+
+    return (
+      <div className="max-w-[1440px]">
+        <div className="flex justify-between mb-4">
+          <div className="flex items-center">
+            <h2>Select Size</h2>
+            <div className="flex gap-2 ml-4">
+              {drinks[currentDrinkIndex].sizes.map((_, index) => (
+                <Button
+                  key={index}
+                  index={index}
+                  isActive={currentSizeIndex === index}
+                  onClick={switchSize}
+                  label={`Size ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="text-center">
+            <h1>{drinks[currentDrinkIndex].name}</h1>
+            <img
+              src={drinks[currentDrinkIndex].sizes[currentSizeIndex]}
+              alt={`Image of ${drinks[currentDrinkIndex].name} - Size ${
+                currentSizeIndex + 1
+              }`}
+              style={{ width: "300px", height: "300px" }}
+            />
+          </div>
+        </div>
+        <div>
+          <h2>Select Drink</h2>
+          <div className="flex justify-between">
+            {drinks.map((drink, index) => (
+              <DrinkCard
                 key={index}
-                className={`bg-white p-2 rounded ${
-                  currentSizeIndex === index ? "border border-blue-500" : ""
-                }`}
-                onClick={() => switchSize(index)}
-                aria-label={`Select size ${index + 1}`}
-              >
-                Size {index + 1}
-              </button>
+                drink={drink}
+                isActive={currentDrinkIndex === index}
+                onClick={() => switchDrink(index)}
+              />
             ))}
           </div>
         </div>
-        <div className="text-center">
-          <h1>{drinks[currentDrinkIndex].name}</h1>
-          <img
-            src={drinks[currentDrinkIndex].sizes[currentSizeIndex]}
-            alt={`Image of ${drinks[currentDrinkIndex].name} - Size ${
-              currentSizeIndex + 1
-            }`}
-            style={{ width: "300px", height: "300px" }}
-          />
-        </div>
       </div>
-      <div>
-        <h2>Select Drink</h2>
-        <div className="flex justify-between">
-          {drinks.map((drink, index) => (
-            <div
-              key={index}
-              onClick={() => switchDrink(index)}
-              className={`flex gap-1 p-2 rounded-full bg-white h-[50px] w-[115px] items-center cursor-pointer ${
-                currentDrinkIndex === index ? "border border-blue-500" : ""
-              }`}
-              role="button"
-              aria-label={`Select drink ${drink.name}`}
-              tabIndex={0} 
-            >
-              <img
-                src={drink.img}
-                alt={drink.name}
-                style={{ width: "40px", height: "40px" }}
-              />
-              <button className="text-[12px]  font-semibold">
-                {drink.name}
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+    );
+  };
 };
-
 export default DrinkSwitcher;
